@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>Bachelor Project Mario Weber</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+    <!-- CSS Charts -->
+    <link href="css/chart1.css" rel="stylesheet">
+
+    <!-- d3.js -->
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+</head>
+<body>
+<div class="navbar-fixed">
+    <nav class="green darken-2" role="navigation">
+        <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">BVB Delay</a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="chart1.html">Chart-1</a></li>
+                <li><a href="chart2.html">Chart-2</a></li>
+                <li><a href="chart3.html">Chart-3</a></li>
+                <li><a href="chart4.html">Chart-4</a></li>
+            </ul>
+
+            <ul id="nav-mobile" class="side-nav">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="chart1.html">Chart-1</a></li>
+                <li><a href="chart2.html">Chart-2</a></li>
+                <li><a href="chart3.html">Chart-3</a></li>
+                <li><a href="chart4.html">Chart-4</a></li>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 class1" id="dashboard">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col l4 m4 s12">
+            <p>Histogram: Total Number of delayed Trams per Day. Select a day-bar and see distribution over all tram lines. </p>
+        </div>
+        <div class="col l4 m4 s12">
+            <p>Piechart: Select tram line and see only associated data in the histogram.</p>
+        </div>
+
+        <div class="col l4 m4 s12">
+            <p>Legend: Toggles between daily and total Data collected, depending on selection of the other charts.</p>
+        </div>
+    </div>
+    <div class="section" id="dashboard">
+    </div>
+    <div class="row">
+        <h2>Statistics:</h2>
+        <h5>Highest Delayed Tram: <span id="stat1" class="statResult"></span></h5>
+        <h5>Tram Line with most delays: <span id="stat2" class="statResult"></span></h5>
+        <h5>Total Data Collected: <span id="stat3" class="statResult"></span></h5>
+        <h5>Sum of all delays: <span id="stat4" class="statResult"></span></h5>
+    </div>
+</div>
+
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.js"></script>
+<script src="js/init.js"></script>
+<script src="js/d3.v3.min.js"></script>
+<script src="js/firebase.js"></script>
+<script src="js/chart1.js"></script>
+<script>
+    getHighestDelayedTram();
+    getTotalDataCollected();
+    getTramLineMostDelays();
+    getTotalDelayTime();
+    dashboard_chart1('#dashboard');
+</script>
+
+</body>
+</html>

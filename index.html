@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>Bachelor Project Mario Weber</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/clock.css" rel="stylesheet">
+</head>
+<body>
+<div class="navbar-fixed">
+    <nav class="green darken-2" role="navigation">
+        <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">BVB Delay</a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="chart1.html">Chart-1</a></li>
+                <li><a href="chart2.html">Chart-2</a></li>
+                <li><a href="chart3.html">Chart-3</a></li>
+                <li><a href="chart5.html">Chart-4</a></li>
+            </ul>
+
+            <ul id="nav-mobile" class="side-nav">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="chart1.html">Chart-1</a></li>
+                <li><a href="chart2.html">Chart-2</a></li>
+                <li><a href="chart3.html">Chart-3</a></li>
+                <li><a href="chart5.html">Chart-4</a></li>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+</div>
+<div class="section no-pad-bot green" id="index-banner">
+    <div class="container green">
+        <br>
+        <h2 class="header center white-text text-darken-4">Visualisation of Real-Time Web Data</h2>
+        <div class="row">
+            <div class="center col l6 m6 s12">
+                <div class="row center"><h4 class=" white-text header col s12">Mario Weber</h4></div>
+                <div class="row center"><a href="#" id="download-button" class="btn-large red waves-effect waves-light">Start</a></div>
+            </div>
+            <div class="center col l6 m6 s12" id="clockContainer">
+                <div id="stationClock">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="section">
+
+        <!--   Icon Section   -->
+        <div class="row">
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h2 class="center green-text"><i class="material-icons">track_changes</i></h2>
+                    <h5 class="center">Idea</h5>
+
+                    <p class="light">Collect, store and visualize data in real-time. The website of Basels public transportation company is periodically checked for delays on a single station. The generated data is stored, analyzed and immediately visualized.</p>
+                </div>
+            </div>
+
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h2 class="center green-text"><i class="material-icons">visibility</i></h2>
+                    <h5 class="center">Visualisations</h5>
+
+                    <p class="light">Scripts periodically transform the received data into JSON objects, which are used to generate different visualisations. </p>
+                </div>
+            </div>
+
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h2 class="center green-text"><i class="material-icons">settings</i></h2>
+                    <h5 class="center">Tools</h5>
+
+                    <p class="light">Several tools are used to support the realisation of this project. The backend is mostly operated by Node.js and Firebase, frontend visualisations in d3. </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <br><br>
+
+    <div class="section">
+
+    </div>
+</div>
+
+
+
+<footer class="page-footer green darken-2">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 m6 s12">
+                <h5 class="white-text">About</h5>
+                <p class="grey-text text-lighten-4">Bachelor Project - Mario Weber</p>
+                <a href="mailto:m.weber@stud.unibas.ch"><p class="red-text text-lighten-4"><i class=" red-text material-icons">email</i></p></a>
+            </div>
+            <div class="col l6 m6 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                    <li><a class="white-text" href="http://www.bvb.ch/fahrplan-netz/online-fahrplan">BVB - Basler Verkehrsbetriebe</a></li>
+                    <li><a class="white-text" href="https://www.unibas.ch/de">Univerity of Basel</a></li>
+                    <li><a class="white-text" href="http://informatik.unibas.ch/willkommen/">Computer Science Department</a></li>
+                    <li><a class="white-text" href="https://www.firebase.com/">Firebase</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            &copy 2016 Mario Weber, Univeristy of Basel
+        </div>
+    </div>
+</footer>
+
+
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.js"></script>
+<script src="js/init.js"></script>
+<script src="js/d3.v3.min.js"></script>
+<script src="js/firebase.js"></script>
+<script src="js/clock2.js"></script>
+
+</body>
+</html>
