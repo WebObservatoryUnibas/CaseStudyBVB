@@ -1,7 +1,7 @@
 
 function drawScatterPlot(id) {
     // data
-    var linkurl = "https://bachprojectmw.firebaseio.com/keen/cache/scatter/.json";
+    var linkurl = "https://bvb-data.firebaseio.com/views/ScatterAll/.json";
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -163,7 +163,7 @@ function drawScatterPlot(id) {
 
         buttonTramTotal.on("click", function(){
 
-            var linkurl = "https://bachprojectmw.firebaseio.com/keen/cache/scatter.json";
+            var linkurl = "https://bvb-data.firebaseio.com/views/ScatterAll/.json";
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function () {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -206,7 +206,7 @@ function drawScatterPlot(id) {
         });
 
         buttonTram3.on("click", function(){
-            var linkurl = "https://bachprojectmw.firebaseio.com/keen/cache/scatterTram3/.json";
+            var linkurl = "https://bvb-data.firebaseio.com/views/Scatter3/.json";
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function () {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -249,7 +249,7 @@ function drawScatterPlot(id) {
         });
 
         buttonTram6.on("click", function(){
-            var linkurl = "https://bachprojectmw.firebaseio.com/keen/cache/scatterTram6/.json";
+            var linkurl = "https://bvb-data.firebaseio.com/views/Scatter6/.json";
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function () {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -293,7 +293,7 @@ function drawScatterPlot(id) {
 
         buttonTram8.on("click", function(){
 
-            var linkurl = "https://bachprojectmw.firebaseio.com/keen/cache/scatterTram8/.json";
+            var linkurl = "https://bvb-data.firebaseio.com/views/Scatter8/.json";
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function () {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -337,7 +337,7 @@ function drawScatterPlot(id) {
 
         buttonTram11.on("click", function(){
 
-            var linkurl = "https://bachprojectmw.firebaseio.com/keen/cache/scatterTram11/.json";
+            var linkurl = "https://bvb-data.firebaseio.com/views/Scatter11/.json";
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function () {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -384,7 +384,7 @@ function drawScatterPlot(id) {
 
         buttonTram14.on("click", function(){
 
-            var linkurl = "https://bachprojectmw.firebaseio.com/keen/cache/scatterTram14/.json";
+            var linkurl = "https://bvb-data.firebaseio.com/views/Scatter14/.json";
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function () {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -428,7 +428,7 @@ function drawScatterPlot(id) {
 
         buttonTram15.on("click", function(){
 
-            var linkurl = "https://bachprojectmw.firebaseio.com/keen/cache/scatterTram15/.json";
+            var linkurl = "https://bvb-data.firebaseio.com/views/Scatter15/.json";
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function () {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -472,7 +472,7 @@ function drawScatterPlot(id) {
 
         buttonTram16.on("click", function(){
 
-            var linkurl = "https://bachprojectmw.firebaseio.com/keen/cache/scatterTram16/.json";
+            var linkurl = "https://bvb-data.firebaseio.com/views/Scatter16/.json";
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function () {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -516,7 +516,7 @@ function drawScatterPlot(id) {
 
         buttonTram17.on("click", function(){
 
-            var linkurl = "https://bachprojectmw.firebaseio.com/keen/cache/scatterTram17/.json";
+            var linkurl = "https://bvb-data.firebaseio.com/views/Scatter17/.json";
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function () {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {

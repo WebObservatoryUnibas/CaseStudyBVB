@@ -143,7 +143,7 @@ function showSchedule(selectedDate, nr, dir){
     }
 
 
-    var linkurl = "https://bachprojectmw.firebaseio.com/keen/cache/scatterTram"+nr+"/.json";
+    var linkurl = "https://bvb-data.firebaseio.com/views/Scatter"+nr+"/.json";
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
