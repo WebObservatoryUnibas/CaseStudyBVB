@@ -1,7 +1,7 @@
 
 function drawScatterPlot(id) {
     // data
-    var linkurl = "https://bvb-data.firebaseio.com/keen/cache/scatter/.json";
+    var linkurl = "https://bachprojectmw.firebaseio.com/keen/cache/scatter/.json";
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
