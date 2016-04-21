@@ -7,7 +7,7 @@ function dashboard_chart1(id){
 
 
     var xmlhttp = new XMLHttpRequest();
-    var linkurl = "https://bachprojectmw.firebaseio.com/keen/cache/dashboard1/.json";
+    var linkurl = "https://bvb-data.firebaseio.com/views/dashboard/.json";
 
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
