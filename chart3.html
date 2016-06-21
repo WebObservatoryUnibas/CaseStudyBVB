@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>Real-Time Data Analytics of a Local Transport Provider - Schedule Info</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet' />
+    <link href="css/jquery-ui.min.css" rel="stylesheet">
+
+    <!-- CSS Charts -->
+    <link href="css/chart3.css" rel="stylesheet">
+
+    <!-- JS -->
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="js/shedules.js"></script>
+    <script src="js/mapmap.js"></script>
+
+    <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js'></script>
+
+
+</head>
+<body>
+<div class="navbar-fixed">
+    <nav class="green darken-2" role="navigation">
+        <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">BVB Data Analytics</a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="chart1.html">Statistics</a></li>
+                <li><a href="chart2.html">Scatterplot</a></li>
+                <li><a href="chart3.html">Schedule Info</a></li>
+                <li><a href="chart4.html">Live Feed</a></li>
+            </ul>
+
+            <ul id="nav-mobile" class="side-nav">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="chart1.html">Statistics</a></li>
+                <li><a href="chart2.html">Scatterplot</a></li>
+                <li><a href="chart3.html">Schedule Info</a></li>
+                <li><a href="chart4.html">Live Feed</a></li>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+</div>
+
+<div class="container">
+    <h2>Detailed Schedule Information</h2>
+    <div class="row">
+        <div class="col s12 m6 l6" id="selector">
+            <label for="datepicker">Select Date</label>
+            <input class="form-control" type="text" id="datepicker">
+            <label for="nr">Select Tram Line</label>
+            <select name="nr" id="nr">
+                <option>3 - Burgfelden Grenze</option>
+                <option>3 - Birsfelden Hard</option>
+                <option>6 - Allschwil</option>
+                <option>6 - Riehen Grenze</option>
+                <option>8 - Neuweilerstrasse</option>
+                <option>8 - Weil am Rhein</option>
+                <option>11 - St.Louis Grenze</option>
+                <option>11 - Aesch</option>
+                <option>14 - Pratteln</option>
+                <option>14 - Dreirosenbruecke</option>
+                <option>15 - Bruderholz</option>
+                <option>16 - Bruderholz</option>
+                <option>16 - Schifflaende</option>
+                <option>17 - Wiesenplatz</option>
+                <option>17 - Ettingen</option>
+            </select>
+            <br>
+            <button type="button" id="myButton" class="btn btn-primary" autocomplete="off">
+                Get Schedule!
+            </button>
+            <br>
+            <br>
+            <div class="hiddendata">
+                <div id="logoDiv">
+                    <img id="picLogo">
+                </div>
+            </div>
+            <div class="hiddendata">
+                <h4 id="textDeps">Station <b>Basel, Barfüsserplatz</b></h4>
+                <h4 id="textDate">Date: <b><span id="boldDateText"></span></b></h4>
+                <h4 id="textDir">Direction: <b><span id="boldDirText"></span></b></h4>
+            </div>
+            <div class="hiddendata">
+                <div id="box1">
+                    <table id="shedPlot"></table>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m6 l6">
+            <div id="box2">
+                <div id="mapboxdiv">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.js"></script>
+<script src="js/init.js"></script>
+<script src="js/jquery-ui.js" charset="utf-8"></script>
+<script src="js/d3.v3.min.js"></script>
+<script src="js/firebase.js"></script>
+<script src="js/chart3.js"></script>
+<script>
+    L.mapbox.accessToken = 'pk.eyJ1Ijoid2lja2V5IiwiYSI6IjMyZTEyYzhiZmIxNzg2NjVlODc5MTgyNzIxMDE5MDg5In0.SXhjYHskojd0xYXGSOlojw';
+    var map = L.mapbox.map('mapboxdiv', 'wickey.m99p62j5');
+    var myLayer = L.mapbox.featureLayer().addTo(map);
+    myLayer.setGeoJSON(mapdata);
+
+    function resetColors() {
+        for (var i = 0; i < mapdata.features.length; i++) {
+            mapdata.features[i].properties['stroke-opacity'] = 0;
+        }
+        myLayer.setGeoJSON(mapdata);
+    }
+
+    function updateRoute(station, lineNr){
+        resetColors();
+        switch (station){
+            case "Birsfelden Hard":
+                mapdata.features[3].properties['stroke-opacity'] = 1;
+                map.setView([ 47.551340, 7.609247 ],13);
+                break;
+            case "Burgfelden Grenze":
+                mapdata.features[2].properties['stroke-opacity'] = 1;
+                map.setView([ 47.5612555, 7.575026 ],13);
+                break;
+            case "Allschwil":
+                mapdata.features[7].properties['stroke-opacity'] = 1;
+                map.setView([ 47.5529425, 7.562885 ],13);
+                break;
+            case "Riehen Grenze":
+                mapdata.features[4].properties['stroke-opacity'] = 1;
+                map.setView([ 47.5744585, 7.622230 ],12);
+                break;
+            case "Neuweilerstrasse":
+                mapdata.features[1].properties['stroke-opacity'] = 1;
+                map.setView([ 47.550088, 7.5731415 ],13);
+                break;
+            case "Weil am Rhein":
+                mapdata.features[0].properties['stroke-opacity'] = 1;
+                map.setView([ 47.5737385, 7.5987435 ],12);
+                break;
+            case "St.Louis Grenze":
+                mapdata.features[6].properties['stroke-opacity'] = 1;
+                map.setView([ 47.565091, 7.581204 ],13);
+                break;
+            case "Aesch":
+                mapdata.features[5].properties['stroke-opacity'] = 1;
+                map.setView([ 47.512054, 7.5930435 ],12);
+                break;
+            case "Pratteln":
+                mapdata.features[9].properties['stroke-opacity'] = 1;
+                map.setView([ 47.537889500000006, 7.6423825 ],12);
+                break;
+            case "Dreirosenbruecke":
+                mapdata.features[8].properties['stroke-opacity'] = 1;
+                map.setView([ 47.5626355, 7.589028 ],13);
+                break;
+            case "Bruderholz":
+                if (lineNr == "15"){
+                    mapdata.features[10].properties['stroke-opacity'] = 1;
+                    map.setView([ 47.5435185, 7.589919 ],13);
+                } else{
+                    mapdata.features[12].properties['stroke-opacity'] = 1;
+                    map.setView([ 47.543546, 7.590549 ],13);
+                }
+                break;
+            case "Schifflaende":
+                mapdata.features[11].properties['stroke-opacity'] = 1;
+                map.setView([ 47.557245, 7.588416 ],13);
+                break;
+            case "Wiesenplatz":
+                mapdata.features[14].properties['stroke-opacity'] = 1;
+                map.setView([ 47.565983, 7.5903935 ],13);
+                break;
+            case "Ettingen":
+                mapdata.features[13].properties['stroke-opacity'] = 1;
+                map.setView([ 47.519208, 7.56723 ],12);
+                break;
+        }
+        myLayer.setGeoJSON(mapdata);
+    }
+
+
+
+    $(function(){
+        $("#datepicker").datepicker(
+                { minDate: new Date("2015-06-18"), maxDate: new Date("2015-07-10"), dateFormat: 'yy-mm-dd' });
+        $( "#nr" ).selectmenu();
+
+    });
+    $(function() {
+        $( "#myButton" )
+                .button()
+                .click(function() {
+                    $("#shedPlot").remove();
+                    d3.select("#box1").append("table").attr("id","shedPlot");
+                    var tramline = $("#nr").val();
+                    var help = tramline.split(" - ");
+                    var lineNr = help[0];
+                    var direction = help[1]
+                    var date = $("#datepicker").val();
+                    var $hiddenmain = $(".hiddendata");
+                    $hiddenmain.hide();
+                    showSchedule(date,lineNr,direction);
+                    $hiddenmain.show();
+                    updateRoute(direction, lineNr);
+                });
+    });
+
+</script>
+
+
+</body>
+</html>
