@@ -26,7 +26,7 @@ function dashboard_chart1(id){
         // function to handle histogram.
         function histoGram(fD){
             var hG={},    hGDim = {t: 60, r: 0, b: 80, l: 0};
-            hGDim.w = (fD.length * 30)- hGDim.l - hGDim.r,
+            hGDim.w = (datz2.length * 30)- hGDim.l - hGDim.r,
                 hGDim.h = 300 - hGDim.t - hGDim.b;
 
             //create svg for histogram.
