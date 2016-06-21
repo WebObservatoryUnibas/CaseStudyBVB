@@ -7,7 +7,7 @@ function dashboard_chart1(id){
 
 
     var xmlhttp = new XMLHttpRequest();
-    var linkurl = "https://bvb-data.firebaseio.com/views/dashboard/.json";
+    var linkurl = "https://bvb-data.firebaseio.com/views/countsPerTram/.json";
 
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -25,9 +25,10 @@ function dashboard_chart1(id){
 
         // function to handle histogram.
         function histoGram(fD){
-            var hG={},    hGDim = {t: 60, r: 0, b: 80, l: 0};
-            hGDim.w = 650 - hGDim.l - hGDim.r,
-                hGDim.h = 300 - hGDim.t - hGDim.b;
+            var hG={},    
+            hGDim = {t: 60, r: 0, b: 80, l: 0};
+            hGDim.w = (datz2.length * 30) - hGDim.l - hGDim.r,
+            hGDim.h = 300 - hGDim.t - hGDim.b;
 
             //create svg for histogram.
             var hGsvg = d3.select(id).append("svg")
@@ -235,7 +236,7 @@ function dashboard_chart1(id){
 
 // get data for highest delayed tram
 function getHighestDelayedTram(){
-    var linkurl = "https://bvb-data.firebaseio.com/views/maxDelay/.json";
+    var linkurl = "https://bvb-data.firebaseio.com/keen/cache/mostDeleyed/.json";
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -257,7 +258,7 @@ function getHighestDelayedTram(){
 
 // get data for tram with most delays
 function getTramLineMostDelays() {
-    var linkurl = "https://bvb-data.firebaseio.com/views/countsPerTram/.json";
+    var linkurl = "https:/bvb-data.firebaseio.com/keen/cache/countsPerTram/.json";
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -277,7 +278,7 @@ function getTramLineMostDelays() {
 
 // get data for count of total data
 function getTotalDataCollected(){
-    var linkurl = "https://bvb-data.firebaseio.com/views/totalData/.json";
+    var linkurl = "https://bvb-data.firebaseio.com/keen/cache/totalData/.json";
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -296,7 +297,7 @@ function getTotalDataCollected(){
 
 // get data for sum of all delays
 function getTotalDelayTime(){
-    var linkurl = "https://bvb-data.firebaseio.com/views/totalTime/.json";
+    var linkurl = "https://bvb-data.firebaseio.com/keen/cache/totaltime/.json";
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
